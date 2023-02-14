@@ -30,9 +30,9 @@
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)strongname.snk</AssemblyOriginatorKeyFile>
 
     <!-- <PackageProjectUrl>https://github.com/ORG/REPO</PackageProjectUrl> -->
-    <Company>Michael Cummings</Company>
+<Company>Microsoft</Company>
     <Authors>Michael Cummings</Authors>
-    <Copyright>Â© Michael Cummings. All rights reserved.</Copyright>
+    <Copyright>Â© Microsoft Coporation. All rights reserved.</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
