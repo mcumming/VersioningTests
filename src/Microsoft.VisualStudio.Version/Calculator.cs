@@ -1,7 +1,7 @@
-﻿// Copyright (c) COMPANY-PLACEHOLDER. All rights reserved.
+// Copyright (c) Michael Cummings. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace Library;
+namespace Microsoft.VisualStudio.Version;
 
 /// <summary>
 /// My first class.
