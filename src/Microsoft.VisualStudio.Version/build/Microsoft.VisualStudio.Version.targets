@@ -1,0 +1,31 @@
+<Project>
+ <Target Name="UpdateVersionProperties" AfterTargets="GetBuildVersion" BeforeTargets="GenerateNativeVersionInfo;GenerateAssemblyVersionInfo;GetNuPkgVersion;GenerateNuspec;AddVersionFile;SupplyNuGetManifestVersion">
+    <PropertyGroup>
+      <RevisionNumber Condition= " '$(RevisionNumber)' == '' ">$(Build_BuildId)</RevisionNumber>
+      <IsDevelopmentBuild Condition=" '$(RevisionNumber)' == '' " >true</IsDevelopmentBuild>
+      <IsDevelopmentBuild Condition=" '$(RevisionNumber)' != '' " >false</IsDevelopmentBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(IsDevelopmentBuild)' == 'true' " >
+      <MajorMinorVersion>42.42</MajorMinorVersion>
+      <BuildNumber>42</BuildNumber>
+      <RevisionNumber>42</RevisionNumber>
+    </PropertyGroup>
+
+    <PropertyGroup>
+      <BuildVersion3Components>$(MajorMinorVersion).$(BuildNumber)</BuildVersion3Components>
+      <BuildVersionSimple>BuildVersion3Components</BuildVersionSimple>
+      <FileVersion>$(MajorMinorVersion).$(BuildNumber).$(RevisionNumber)</FileVersion>
+      <BuildVersion>$(MajorMinorVersion).$(BuildNumber).$(RevisionNumber)</BuildVersion>
+      <AssemblyFileVersion>$(MajorMinorVersion).$(BuildNumber).$(RevisionNumber)</AssemblyFileVersion>
+      <AssemblyInformationalVersion>$(AssemblyFileVersion)$(PrereleaseVersion)$(SemVerBuildSuffix)</AssemblyInformationalVersion>
+      <Version>$(BuildVersion3Components)</Version>
+      <NuGetPackageVersion>$(BuildVersion3Components)$(PrereleaseVersion)$(SemVerBuildSuffix)</NuGetPackageVersion>
+      <PackageVersion>$(NuGetPackageVersion)</PackageVersion>
+      <ChocolateyPackageVersion>$(NuGetPackageVersion)</ChocolateyPackageVersion>
+      <NPMPackageVersion>$(NuGetPackageVersion)</NPMPackageVersion>
+    </PropertyGroup>
+
+    <Message Importance="High" Text="%(NBGV_PropertyItems.Identity) = $(%(NBGV_PropertyItems.Identity))" />
+  </Target>
+</Project>

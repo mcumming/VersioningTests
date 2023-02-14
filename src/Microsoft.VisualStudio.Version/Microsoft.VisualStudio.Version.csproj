@@ -1,4 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
+<Import Project="build/Microsoft.VisualStudio.Version.props" />
+
   <PropertyGroup>
     <TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
     <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -8,4 +10,25 @@
   <ItemGroup>
     <None Include="$(RepoRootPath)README.md" Pack="true" PackagePath="" />
   </ItemGroup>
+<ItemGroup>
+  <!-- files in the build/ directory run per target framework -->
+  <None Include="build\**">
+    <Pack>true</Pack>
+    <PackagePath>build\</PackagePath>
+  </None>
+  <!-- files in the buildMultiTargeting/ directory run once
+        per project (regardless of # of target frameworks),
+        but *only* if the project is multi-targeted -->
+  <None Include="buildMultiTargeting\**">
+    <Pack>true</Pack>
+    <PackagePath>buildMultiTargeting\</PackagePath>
+  </None>
+</ItemGroup>
+
+<ItemGroup>
+  <PackageReference Include="NerdBank.GitVersioning" />
+</ItemGroup>
+
+<Import Project="build/Microsoft.VisualStudio.Version.targets" />
+
 </Project>

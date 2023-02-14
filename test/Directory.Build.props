@@ -5,4 +5,8 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
+<ItemGroup>
+  <PackageReference Include="Microsoft.VisualStudio.Version" PrivateAssets="All" />
+  <PackageReference Include="NerdBank.GitVersioning" PrivateAssets="All" />
+</ItemGroup>
 </Project>
