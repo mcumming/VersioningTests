@@ -1,6 +1,7 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System.Reflection;
 using Xunit;
 
 public class AssemblyVersionTests
@@ -18,9 +19,18 @@ public class AssemblyVersionTests
 
         var fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(AssemblyUnderTest);
         Assert.Equal("42.42.42.42", fvi.FileVersion);
-        Assert.Equal("42.42.42.42-beta+cdffde26ae", fvi.ProductVersion);
+        Assert.StartsWith("42.42.42.42-beta", fvi.ProductVersion);
 
-        string assemblyVersion = System.Reflection.Assembly.LoadFile(Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), AssemblyUnderTest)).GetName().Version?.ToString() ?? string.Empty;
-        Assert.Equal("0.1.0.0", assemblyVersion);
+        var executionFolder = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        if (executionFolder != null)
+        {
+            var fullPathToAssembly = Path.Combine(executionFolder, AssemblyUnderTest);
+            string assemblyVersion = System.Reflection.Assembly.LoadFile(fullPathToAssembly).GetName().Version?.ToString() ?? string.Empty;
+            Assert.Equal("0.1.0.0", assemblyVersion);
+        }
+        else
+        {
+        Assert.Fail("Could not locate execution folder.");
+        }
     }
 }

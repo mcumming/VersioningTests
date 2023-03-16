@@ -28,4 +28,9 @@
 
     <Message Importance="High" Text="%(NBGV_PropertyItems.Identity) = $(%(NBGV_PropertyItems.Identity))" />
   </Target>
+
+  <Target Name="InfoPlistUpdaterTask" DependsOnTargets="GetBuildVersion" BeforeTargets="CollectAppManifests">
+    <InfoPlistUpdaterTask CFBundleShortVersionString="$(BuildVersionSimple)" CFBundleVersion="$(GitVersionHeight)" />
+  </Target>
+
 </Project>

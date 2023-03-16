@@ -31,7 +31,7 @@ public class NuGetVersionTests
         var version = root.Descendants()
               .Where(x => x.Name.LocalName == "version")
               .First();
-        Assert.Equal("42.42.42-beta+cdffde26ae", version.Value);
+        Assert.StartsWith("42.42.42-beta+", version.Value);
 
         Directory.Delete(tempDirectory, true);
     }

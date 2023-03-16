@@ -26,7 +26,8 @@
 </ItemGroup>
 
 <ItemGroup>
-  <PackageReference Include="NerdBank.GitVersioning" />
+  <PackageReference Include="NerdBank.GitVersioning" PrivateAssets="none" />
+  <PackageReference Include="Sparkie.InfoPlistVersioning" PrivateAssets="none" />
 </ItemGroup>
 
 <Import Project="build/Microsoft.VisualStudio.Version.targets" />

@@ -9,13 +9,14 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.4.5" />
     <PackageVersion Include="xunit" Version="2.4.2" />
-<PackageVersion Include="Nerdbank.GitVersioning" Version="3.5.119" />
-<PackageVersion Include="Microsoft.VisualStudio.Version" Version="42.42.42-beta" />
+    <PackageVersion Include="Nerdbank.GitVersioning" Version="3.5.119" />
+    <PackageVersion Include="Sparkie.InfoPlistVersioning" Version="1.0.0" />
+    <PackageVersion Include="Microsoft.VisualStudio.Version" Version="42.42.42-beta" />
 
   </ItemGroup>
   <ItemGroup>
     <GlobalPackageReference Include="CSharpIsNullAnalyzer" Version="0.1.329" />
-<GlobalPackageReference Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59" />
+    <GlobalPackageReference Include="DotNetAnalyzers.DocumentationAnalyzers" Version="1.0.0-beta.59" />
 
 
     <GlobalPackageReference Include="Nullable" Version="1.3.1" />
